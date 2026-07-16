@@ -155,5 +155,8 @@ src-tauri/icons/*.icns
 stockfish
 stockfish.exe
 
+# AI agent instructions (not shared)
+AGENTS.md
+
 # Windows debug symbols
 *.pdb
