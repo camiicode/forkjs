@@ -6,8 +6,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && pnpm build:inject",
+    "build:inject": "vite build --config vite.config.inject.ts",
     "preview": "vite preview",
+    "setup:stockfish": "node scripts/fetch-stockfish.mjs",
     "tauri": "tauri"
   },
   "keywords": [],
@@ -20,10 +22,12 @@
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
+    "chess.js": "^1.4.0",
     "typescript": "^7.0.2",
     "vite": "^8.1.4"
   },
   "dependencies": {
+    "@tauri-apps/api": "^2.11.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   }
