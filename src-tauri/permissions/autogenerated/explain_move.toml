@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-explain-move"
+description = "Enables the explain_move command without any pre-configured scope."
+commands.allow = ["explain_move"]
+
+[[permission]]
+identifier = "deny-explain-move"
+description = "Denies the explain_move command without any pre-configured scope."
+commands.deny = ["explain_move"]

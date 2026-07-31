@@ -1,9 +1,12 @@
 mod stockfish;
 mod groq;
 
+use tauri::WebviewWindowBuilder;
+
 #[tauri::command]
 fn get_best_moves(fen: String) -> Result<stockfish::AnalysisResult, String> {
-    stockfish::analyze_position(&fen)
+    let stockfish_path = stockfish::resolve_stockfish_path()?;
+    stockfish::analyze_position(&fen, &stockfish_path)
 }
 
 #[tauri::command]
@@ -27,6 +30,10 @@ pub fn run() {
                         .build(),
                 )?;
             }
+            let window_config = &app.config().app.windows[0];
+            WebviewWindowBuilder::from_config(app.handle(), window_config)?
+                .initialization_script(include_str!("../../dist/board-reader.js"))
+                .build()?;
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![get_best_moves, explain_move])

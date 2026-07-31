@@ -6,12 +6,13 @@
   "build": {
     "frontendDist": "../dist",
     "devUrl": "http://localhost:5173",
-    "beforeDevCommand": "pnpm dev",
+    "beforeDevCommand": "pnpm build:inject && pnpm dev",
     "beforeBuildCommand": "pnpm build"
   },
   "app": {
     "windows": [
       {
+        "create": false,
         "title": "ForkJS — Chess Analysis",
         "url": "https://www.chess.com",
         "width": 1280,
@@ -30,6 +31,7 @@
   "bundle": {
     "active": true,
     "targets": "all",
+    "externalBin": ["binaries/stockfish"],
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",

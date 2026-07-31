@@ -154,6 +154,7 @@ src-tauri/icons/*.icns
 # Stockfish binary (not versioned — distributed separately)
 stockfish
 stockfish.exe
+src-tauri/binaries/
 
 # AI agent instructions (not shared)
 AGENTS.md
